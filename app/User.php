@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function lessons(){
+        return $this->hasMany(Lesson::class);
+    }
+    public function threads(){
+        return $this->hasMany(Thread::class);
+    }
 }

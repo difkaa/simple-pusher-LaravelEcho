@@ -29,18 +29,14 @@ class LessonController extends Controller
         $lesson->save();
 
         $threads = Thread::where('id','=',$lesson->thread_id)->select('user_id')->get();
+        $allTable = Lesson::with('thread');
+
         foreach($threads as $thread){
-
-
-
-        // $user = User::where('id', '!=', auth()->user()->id)->get();
-
-        $user = User::where('id','=', $thread->user_id)->get();
-
+            $user = User::where('id','=', $thread->user_id)->get();
         }
         // \Notification::send($user, new NewLessonNotification(Lesson::latest('id')->first(), User::where('id','=',auth()->user()->id)->first()));
 
-        \Notification::send($user, new NewLessonNotification(DB::table('thread_lesson_user')->latest('id')->first()));
+        \Notification::send($user, new NewLessonNotification($allTable->latest('id')->first()));
         // $user->notify(new NewLessonNotification(DB::table('thread_lesson_user')))->latest('id')->first();
 
 

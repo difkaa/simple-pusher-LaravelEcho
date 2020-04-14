@@ -10,7 +10,7 @@
 
             <a class="dropdown-item" href="#" v-on:click="MarkAsRead(lesson)" v-for="lesson in lessons">
                   <!-- {{ lesson.data['lesson']['username'] }} comment on {{ lesson.data['lesson']['titlethread'] }} <b>{{lesson.created_at }}</b> -->
-                  {{ lesson.data['lesson']['username'] }} comment on {{ lesson.data['lesson']['titlethread'] }} {{ lesson.created_at | myOwnTime }}
+                  {{ lesson.data['lesson']['username'] }} comment on {{ lesson.data['lesson']['thread']['title_thread'] }} {{ lesson.created_at | myOwnTime }}
                   <!-- <b>{{lesson.created_at | moment}}</b> -->
 
 

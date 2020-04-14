@@ -10,9 +10,9 @@
                 <ul class="item-group">
                     @foreach ($lessons as $lesson)
                         <li class="list-group-item">
-                            <h2>{{$lesson->data['lesson']['titlethread']}}</h2>
+                            <h2>{{$lesson->data['lesson']['thread']['title_thread']}}</h2>
                             <hr>
-                            {{$lesson->data['lesson']['lessonbody']}}
+                            {{$lesson->data['lesson']['body']}}
                         </li>
                     @endforeach
                 </ul>
